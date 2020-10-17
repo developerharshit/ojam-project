@@ -31,7 +31,7 @@ public class Content extends Fragment {
 
     private RecyclerView rv;
     private Api api;
-    private ProgressDialog progressDialog;
+//    private ProgressDialog progressDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
     private Video video;
     private String id;
@@ -59,7 +59,7 @@ public class Content extends Fragment {
         rv = view.findViewById(R.id.recyclerView);
         swipeRefreshLayout = view.findViewById(R.id.swipe);
 
-        progressDialog = new ProgressDialog(getContext());
+//        progressDialog = new ProgressDialog(getContext());
 
         final String url = "https://www.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=20&key="+AUTH_KEY+"&videoCategoryId="+id;
 
@@ -102,21 +102,21 @@ public class Content extends Fragment {
     }
 
     private void fetchVideoByTag(String url) {
-        progressDialog.show();
-        progressDialog.setMessage("Please wait");
+//        progressDialog.show();
+//        progressDialog.setMessage("Please wait");
         Call<Video> call = api.getVideoList(url);
 
         call.enqueue(new Callback<Video>() {
             @Override
             public void onResponse(Call<Video> call, Response<Video> response) {
-                progressDialog.dismiss();
+//                progressDialog.dismiss();
                 video = response.body();
                 setRecyclerView(video);
             }
 
             @Override
             public void onFailure(Call<Video> call, Throwable t) {
-                progressDialog.dismiss();
+//                progressDialog.dismiss();
                 Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
