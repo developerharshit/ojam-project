@@ -6,8 +6,6 @@ public class Constants {
             "Autos & Vehicles",
             "Pets & Animals",
             "Sports",
-            "Short Movies",
-            "Travel & Events",
             "Gaming"
     };
     public static final String[] categoryId = {
@@ -15,8 +13,6 @@ public class Constants {
             "2",
             "15",
             "17",
-            "18",
-            "19",
             "20"
     };
 }
